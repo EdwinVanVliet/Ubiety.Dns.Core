@@ -17,6 +17,8 @@
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>ubiety.dns.snk</AssemblyOriginatorKeyFile>
     <DelaySign>false</DelaySign>
+	<AnalysisLevel>preview</AnalysisLevel>
+	<EnableNETAnalyzers>true</EnableNETAnalyzers>
   </PropertyGroup>
 
   <ItemGroup>
