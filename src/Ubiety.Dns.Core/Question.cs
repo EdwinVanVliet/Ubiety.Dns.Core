@@ -197,7 +197,7 @@ namespace Ubiety.Dns.Core
                 j = -1;
             }
 
-            sb[^1] = '\0';
+            sb[sb.Length - 1] = '\0';
             return Encoding.ASCII.GetBytes(sb.ToString());
         }
     }
