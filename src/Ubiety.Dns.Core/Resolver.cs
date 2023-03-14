@@ -301,7 +301,14 @@ namespace Ubiety.Dns.Core
                 foreach (var server in _dnsServers)
                 {
                     _logger.LogDebug($"Connecting to server {server.Address}...");
-                    using var client = new UdpClient(AddressFamily.InterNetworkV6) { Client = { DualMode = true } };
+                    using var client = new UdpClient(AddressFamily.InterNetworkV6)
+                    {
+                        Client =
+                        {
+                            DualMode = true,
+                            ReceiveTimeout = Timeout,
+                        },
+                    };
 
                     try
                     {

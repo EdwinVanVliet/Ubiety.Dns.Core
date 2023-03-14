@@ -35,7 +35,7 @@ namespace Dns.Sample
             var logger = factory.CreateLogger<Resolver>();
 
             _resolver = ResolverBuilder.Begin(logger)
-                .AddDnsServer("8.8.8.8")
+                .AddDnsServer("10.128.80.38")
                 .SetTimeout(1000)
                 .EnableCache()
                 .SetRetries(3)
