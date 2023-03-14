@@ -25,25 +25,25 @@ namespace Dns.Sample
         {
             var test = new DnsTest();
 
-            Console.WriteLine("CERT records for: direct.sitenv.org");
-            foreach (var record in test.CertRecords("direct.sitenv.org"))
+            //Console.WriteLine("CERT records for: direct.sitenv.org");
+            //foreach (var record in test.CertRecords("direct.sitenv.org"))
+            //{
+            //    Console.WriteLine(record);
+            //}
+
+            //Console.WriteLine();
+
+            foreach (var record in test.ARecords("fullpagecheck.com"))
             {
                 Console.WriteLine(record);
             }
 
             Console.WriteLine();
 
-            foreach (var record in test.ARecords("direct.sitenv.org"))
-            {
-                Console.WriteLine(record);
-            }
-
-            Console.WriteLine();
-
-            foreach (var record in test.GetNaptr("dev.nwise.se"))
-            {
-                Console.WriteLine(record);
-            }
+            //foreach (var record in test.GetNaptr("dev.nwise.se"))
+            //{
+            //    Console.WriteLine(record);
+            //}
         }
     }
 }

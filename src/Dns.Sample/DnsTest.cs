@@ -15,6 +15,7 @@
  *      along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Linq;
 using Ubiety.Dns.Core;
@@ -30,16 +31,18 @@ namespace Dns.Sample
 
         public DnsTest()
         {
-            var logManager = new TestLogManager();
+            var factory = LoggerFactory.Create(b => b.AddConsole());
+            var logger = factory.CreateLogger<Resolver>();
 
-            _resolver = ResolverBuilder.Begin()
-                .EnableLogging(logManager)
-                .AddDnsServer("1.1.1.1")
+            _resolver = ResolverBuilder.Begin(logger)
+                .AddDnsServer("8.8.8.8")
                 .SetTimeout(1000)
                 .EnableCache()
                 .SetRetries(3)
                 .UseRecursion()
                 .Build();
+
+            _resolver.TransportType = TransportType.Udp;
         }
 
         public IEnumerable<string> CertRecords(string name)
